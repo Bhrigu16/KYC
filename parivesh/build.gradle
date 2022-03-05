@@ -1,0 +1,65 @@
+plugins {
+	id 'org.springframework.boot' version '2.6.3'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	
+	id 'java'
+	id 'war'
+}
+
+group = 'com.backend'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+repositories {
+	maven {
+		url 'https://app.camunda.com/nexus/content/groups/public'
+	}
+	mavenCentral()
+}
+
+//ext {
+//  set('camundaVersion', "7.16.0")
+//}
+
+//dependencyManagement {
+//  imports {
+//    mavenBom "org.camunda.bpm:camunda-bom:${camundaVersion}"
+//  }
+//}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-mail'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	
+	//camunda dependencies
+	//implementation 'org.camunda.bpm.springboot:camunda-bpm-spring-boot-starter-rest'
+	//implementation 'org.camunda.bpm.springboot:camunda-bpm-spring-boot-starter-webapp'
+	//implementation 'org.camunda.bpm:camunda-engine-plugin-spin'
+	//implementation 'org.camunda.bpm:camunda-engine-rest-openapi:7.16.0'
+	//implementation 'org.camunda.bpm.run:camunda-bpm-run-modules-swaggerui:7.16.0'
+	//implementation 'org.camunda.spin:camunda-spin-dataformat-all'
+	
+	
+	//Kafka dependemcies
+	implementation 'org.springframework.kafka:spring-kafka'
+	testImplementation 'org.springframework.kafka:spring-kafka-test'
+	
+	implementation 'org.springdoc:springdoc-openapi-ui:1.6.4'
+	//implementation 'org.bouncycastle:bcmail-jdk15on:1.70'
+	//implementation 'org.bouncycastle:bcprov-jdk15on:1.70'
+	implementation 'org.apache.tika:tika-parsers:2.3.0'
+	implementation 'org.apache.tika:tika-core:2.3.0'
+	implementation 'com.sun.xml.bind:jaxb-impl:3.0.2'
+	implementation 'org.thymeleaf:thymeleaf:3.0.14.RELEASE'
+	implementation 'com.google.guava:guava:31.0.1-jre'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	runtimeOnly 'org.postgresql:postgresql'
+	compileOnly 'org.projectlombok:lombok:1.18.22'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}

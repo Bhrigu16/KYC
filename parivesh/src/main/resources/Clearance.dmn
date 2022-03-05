@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:camunda="http://camunda.org/schema/1.0/dmn" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" id="Definitions_00fvpwm" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="4.12.0">
+  <decision id="clearance" name="Clearance Rule">
+    <decisionTable id="DecisionTable_02smw7f" hitPolicy="ANY">
+      <input id="InputClause_0nvq3zk" label="Activity ID" camunda:inputVariable="activityId">
+        <inputExpression id="LiteralExpression_08dc97e" typeRef="integer" expressionLanguage="feel">
+          <text>activityId</text>
+        </inputExpression>
+      </input>
+      <input id="Input_1" label="Activity" camunda:inputVariable="activity">
+        <inputExpression id="InputExpression_1" typeRef="string" expressionLanguage="feel">
+          <text>activity</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1vudjg5" label="SubActivity ID" camunda:inputVariable="subactivityId">
+        <inputExpression id="LiteralExpression_0qi0qwk" typeRef="integer" expressionLanguage="feel">
+          <text>subactivityId</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_158ii60" label="SubActivity" biodi:width="192" camunda:inputVariable="subactivity">
+        <inputExpression id="LiteralExpression_1f6273m" typeRef="string" expressionLanguage="feel">
+          <text>subactivity</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0imb7en" label="Threshold Parameter ID" camunda:inputVariable="parameterId">
+        <inputExpression id="LiteralExpression_08t226r" typeRef="integer" expressionLanguage="feel">
+          <text>parameterId</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_09vi2ph" label="Threshold Parameter" camunda:inputVariable="parameter">
+        <inputExpression id="LiteralExpression_0o3koix" typeRef="string" expressionLanguage="feel">
+          <text>parameter</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0pohy2j" label="Threshold" camunda:inputVariable="threshold">
+        <inputExpression id="LiteralExpression_0lmt3o6" typeRef="integer" expressionLanguage="feel">
+          <text>threshold</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="Clearance 1" name="clearance" typeRef="string" biodi:width="192" />
+      <output id="OutputClause_13wavdo" label="Clearance 2" name="clearance2" typeRef="string" />
+      <rule id="DecisionRule_1us6fee">
+        <inputEntry id="UnaryTests_1ygfr7k">
+          <text>1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0cqxwd4">
+          <text>"Mining"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07m0vso">
+          <text>1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_14j6uoo">
+          <text>"Coal Mining"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_031ch13">
+          <text>1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0r74b0f">
+          <text>"Mine Lease area"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ja6umd">
+          <text>&gt;=0</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1btk69d">
+          <text>"Environment Clearance"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1iun3q4">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0owvxjw">
+        <inputEntry id="UnaryTests_01f7wlw">
+          <text>1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1sawj0j">
+          <text>"Mining"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_02s7mk5">
+          <text>2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1p1daas">
+          <text>"Non-Coal Mining (Major Minerals)"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0jknxrr">
+          <text>2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_114p04p">
+          <text>"Mine Lease area"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1b2v1lm">
+          <text>&gt;=0</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1j7tm55">
+          <text>"Environment Clearance"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_053f5z5">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1rftwdg">
+        <inputEntry id="UnaryTests_09853nu">
+          <text>1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1eav24c">
+          <text>"Mining"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_14fvaoo">
+          <text>3</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1c6agyg">
+          <text>"Non-Coal Mining (Minor Minerals)"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_17syvbo">
+          <text>3</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1x8uzt1">
+          <text>"Mine Lease area"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_00ixjnl">
+          <text>&gt;=0</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_16uchag">
+          <text>"Environment Clearance"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0q3sbyh">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0fhrksb">
+        <inputEntry id="UnaryTests_0sgaa19">
+          <text>2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0abuaym">
+          <text>"Slurry pipelines (coal, lignite, and other ores) passing through national parks/sanctuaries / coral reefs, ecologically sensitive areas"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1323v0v">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1sgapjc">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1suvatq">
+          <text>5</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1hsikw2">
+          <text>"Length"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_19xx4yu">
+          <text>&gt;=0</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_025gtzc">
+          <text>"Environment Clearance"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0m9ls2y">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0b016nj">
+        <inputEntry id="UnaryTests_0eok4e4">
+          <text>3</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1jukbi6">
+          <text>"Off-shore and onshore oil and gas exploration, development, and production"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0zp57zb">
+          <text>6</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_051ntx7">
+          <text>"Off-Shore and Onshore Oil and Gas exploration"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1yvs1ch">
+          <text>6</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_09uq4pr">
+          <text>"No. of Exploration Wells"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_01jhh3t">
+          <text>&gt;=0</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0fojda8">
+          <text>"Environment Clearance"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1wq76db">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0d3pafd">
+        <inputEntry id="UnaryTests_0auodai">
+          <text>3</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0rb76v9">
+          <text>"Off-shore and onshore oil and gas exploration, development, and production"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1mq6e89">
+          <text>7</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_15s7k19">
+          <text>"Off-Shore and Onshore Oil and Gas exploration including development and Production"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1m1llgz">
+          <text>7</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_02a95ei">
+          <text>"No. of Exploration Wells"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08gdld0">
+          <text>&gt;=0</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_189klm4">
+          <text>"Environment Clearance"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1y20447">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0afy7sb">
+        <inputEntry id="UnaryTests_1kqdjoj">
+          <text>3</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ip876f">
+          <text>"Off-shore and onshore oil and gas exploration, development, and production"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_036y05j">
+          <text>8</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_19ohg8z">
+          <text>"Off-Shore and Onshore Oil and Gas development and Production"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1nag4ox">
+          <text>8</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1pr0vkr">
+          <text>"Production of Oil and Gas"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1syiu7l">
+          <text>&gt;=0</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0p62b1l">
+          <text>"Environment Clearance"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0l48iy9">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1kxowhw">
+        <inputEntry id="UnaryTests_1m9emds">
+          <text>4</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_10jsype">
+          <text>"River Valley projects"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1vf6zdj">
+          <text>9</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0zya3t6">
+          <text>"Hydroelectric power generation"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_18jh5gb">
+          <text>9</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1jy50h5">
+          <text>"Generation Capacity"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ti2y0x">
+          <text>&gt;=25</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_00z1fxk">
+          <text>"Environment Clearance"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0g9quv3">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1sulmne">
+        <inputEntry id="UnaryTests_0c4fu2r">
+          <text>4</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0j04fwt">
+          <text>"River Valley projects"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1kq5smg">
+          <text>10</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_04eolwu">
+          <text>"Irrigation Projects"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_13tnlso">
+          <text>10</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0t76rmv">
+          <text>"Culturable command area"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ft1hgo">
+          <text>&gt;= 2000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_13mt97o">
+          <text>"Environment Clearance"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_02j1jh4">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0jw0lv1">
+        <inputEntry id="UnaryTests_1ujtsgf">
+          <text>42</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0nw4int">
+          <text>"Townships and Area Development Projects"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_06xrt01">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0jd2x6f">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0byp5kb">
+          <text>83</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0p00v0g">
+          <text>"Built-up Area"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0m3rh74">
+          <text>&gt;=150000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0w2mo02">
+          <text>"Environment Clearance"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_13luozj">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1h6t6fa">
+        <inputEntry id="UnaryTests_0nvayv5">
+          <text>42</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_15zp1st">
+          <text>"Townships and Area Development Projects"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0jb3z8v">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0tvtm4a">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_06ywj75">
+          <text>84</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_00absbl">
+          <text>"Covering Area"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0yb62a9">
+          <text>&gt;=50</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0urue00">
+          <text>"Environment Clearance"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0yavc36">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0ognj8e">
+        <inputEntry id="UnaryTests_1621z8c">
+          <text>43</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0g4gduz">
+          <text>"Defence"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_11pxeo4">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_11muodd">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ycnz1l">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0bed41a">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0z53fzc">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1u4m3od">
+          <text>"Wildlife Clearance"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1s342ad">
+          <text>"Forest Clearance"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="clearance">
+        <dc:Bounds height="80" width="180" x="160" y="100" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

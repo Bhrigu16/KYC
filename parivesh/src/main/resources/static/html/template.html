@@ -1,0 +1,100 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <title>Report</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <style>
+        body {
+            font-family: "Roboto";
+        }
+
+        .sub-header {
+            height: 80px;
+            background-color: #009B49;
+            padding: 7px;
+            align-items: center;
+            display: flex;
+            flex-direction: row;
+            box-shadow: 4px 4px 32px #00000040;
+            color: #fff;
+        }
+
+        span {
+            font-size: 16px;
+        }
+
+        .hl {
+            border-bottom: 1px solid;
+            margin-bottom: 8px;
+            width: 48px;
+        }
+
+        .full-form {
+            font-size: 12px;
+            font-weight: 500;
+            margin-top: 5px;
+        }
+
+        .hindi-text {
+            font-weight: 500;
+        }
+
+        .header-1,
+        .header-2 {
+            margin-left: 10px;
+            margin-bottom: 12px;
+            display: grid;
+
+        }
+
+        .header-2 span {
+            font-size: 14px !important;
+        }
+
+        .example-spacer {
+            flex: 1 1 auto;
+        }
+
+        .emb-1 {
+            margin-left: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sub-header">
+        <div>
+            <img th:src="@{../images/Emblem.png}" alt="" height="72" width="42">
+        </div>
+        <div class="header-2">
+            <span class="hindi-text">पर्यावरण,वन और जलवायु परिवर्तन मंत्रालय</span>
+            <span>Ministry of Environment, Forest and Climate Change</span>
+        </div>
+        <span class="example-spacer"></span>
+        <img class="emb-1" th:src="@{../images/moefcc.png}" alt="" height="60" width="200">
+    </div>
+    <div class="content">
+        <p>Dear Sir,</p>
+        <p><b>Congratulation ! You have been registered successfully on Online Submission & Monitoring of
+                Environmental, Forest & Wildlife Clearances Proposals portal as Individual !!</b></p><br><br>
+        <p>Applicant Login Credentials are:</p>
+        <p>CIDN: xxxxxxxxxx</p>
+        <p>User ID: <span th:text="${person.recieverMail}">'test</span></p>
+        <p>Password: <span th:text="${person.password}">'test</span></p>
+        <p>Please click on link below to activate your account.</p>
+        <a th:href="${person.url}" th:text="${person.url}">'test</a><br><br>
+        <p> Best Regards,<br>
+            Monitoring Cell (Environment, Forests and Wildlife Clearances) <br>
+            Ministry of Environment, Forest and Climate Change <br>
+            Government of India <br>
+            New Delhi.</p>
+    </div>
+    <div>
+        <a href="https://amritmahotsav.nic.in/">
+            <img th:src="@{../images/mailImage.jpg}" alt="">
+        </a>
+    </div>
+</body>
+
+</html>
